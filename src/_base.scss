@@ -1,0 +1,81 @@
+main {
+    width: 940px;
+    margin: 0 auto;
+    padding: 0 10px;
+    @include break(959px) { width:768px; };
+    @include break(767px) { width:460px; };
+    @include break(459px) { width:300px; }
+}
+
+header {
+    width: inherit;
+    clear: both;
+    text-align: center;
+    padding-top: 40px;
+    
+    
+    img {
+        max-width: 100%;
+        height: auto;
+        @include break(767px) { margin-bottom: 100px;};
+        @include break(459px) {margin-bottom:80px;}
+    }
+
+    h1{ @include headerProps($red, 100, 4em, 0, 40px);
+        @include break(959px) { font-size:3em; };
+        @include break(767px) { font-size:2em; }
+    }
+    h2{ @include headerProps($backgndColor, 900, 2.5em, 0, 70px);
+        @include break(959px) { font-size:1.5em; };
+        @include break(767px) { font-size:1em; }; 
+        @include break(459px) { font-size:1.4em; }
+    }
+    h3{ @include headerProps($grey, 400, 2em, 0, 50px); 
+        @include break(767px) { font-size:1.5em; }; 
+        @include break(459px) { color:$backgndColor;font-size:1em;}
+    }
+}
+
+#headline {
+    @include BasicProperties(100%, 130px, $brickRed);
+    text-align: center;
+    margin: 0 auto;
+
+    h1{
+        color:$backgndColor;
+        font-size:2.5em;
+        font-weight:100;
+        
+        // padding-top:50px;
+        // using math operator /
+        padding-top: (100px / 2);
+
+        @include break(767px) {font-size:2em;padding-top:50px;};
+        @include break(459px) {font-size:1.5em;padding-top:30px;}
+    }
+}
+
+.greybar {
+    @include BasicProperties(100%, 90px, $white);
+    clear:both;
+    padding-top:30px;
+    @include break(459px){display:none;}
+}
+
+footer {
+    @include BasicProperties(100%, 120px, $darkGrey );
+    text-align:center;
+    color: $backgndColor;
+   
+    // padding-top:50px;
+    // using math operator /
+    padding-top: (100px / 2);
+
+    p, img {
+        @include break(459px){float:none;margin:0;}
+    }
+}
+
+article img {
+    @include break(459px) {display: none;}
+}

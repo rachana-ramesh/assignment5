@@ -1,0 +1,29 @@
+.social-media {
+    margin:0 auto;
+    
+    // width:165px; Assigning this using math operator *
+    width: 33px * 5;
+
+    & div {
+        float:left;
+        margin-right:5px;
+    }
+
+    & a {
+        display:block;
+        width:36px;
+        height:36px;
+        text-indent:-9999px;
+    }
+}
+
+$div-images: (
+    one: 0 0,
+    two: -38px 0,
+    three: -76px 0,
+    four: -114px 0
+);
+
+@each $name, $value in $div-images {
+    .social-media div.#{$name} { background:url($mediaImage) $value}
+}
